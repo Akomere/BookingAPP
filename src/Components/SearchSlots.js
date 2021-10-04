@@ -5,7 +5,6 @@ import { Container, Row, Col, Form, FormGroup } from "reactstrap"
 import AvailableSlots from './AvailableSlots';
 import fetchSlots from './Fetchslots';
 import 'bootstrap/dist/css/bootstrap.min.css'
-import cleaner from './OrderDates';
 import axios from 'axios'
 import moment from 'moment';
 import dayjs from 'dayjs';
