@@ -19,7 +19,7 @@ Test the app:
   - npm install
   - npm test
 
-  Deploy to surge:
+Deploy to surge:
     stage: deploy
     script:
       - npm install --global surge
