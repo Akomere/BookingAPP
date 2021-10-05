@@ -15,5 +15,6 @@ Test the app:
   stage: test
   image: node
   script:
+  - npm install
   - npm test
 
