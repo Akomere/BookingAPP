@@ -1,9 +1,11 @@
+image: node
+
 stages:
   - build
   - test
+  - deploy
 build the website:
   stage: build
-  image: node
   script:
     - npm install
     - npm run build
@@ -13,8 +15,13 @@ build the website:
 
 Test the app:
   stage: test
-  image: node
   script:
   - npm install
   - npm test
+
+  Deploy to surge:
+    stage: deploy
+    script:
+      - npm install --global surge
+      - surge --project ./build --domain akpostherapie.surge.sh
 
