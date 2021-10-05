@@ -5,7 +5,6 @@ const fetchSlots = async (dates, clinic_in, service_in) => {
     const servId = 'ser100';
     // const clinId = clinic_in.clinicId;
     // const servId = service_in.servId;
-    let mydata = [];
     var info = {}
     await Promise.all(
         dates.map(async (id) => {

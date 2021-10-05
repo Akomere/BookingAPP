@@ -1,10 +1,8 @@
 import React from 'react'
-import Slots from './Slots'
 import { v4 as uuidv4 } from 'uuid';
 import { useState } from 'react';
 import {Row, Col, Container, Card, CardText, Button} from "reactstrap"
 import { Modal} from 'react-bootstrap';
-import SubmitBooking from './SubmitBooking';
 import sortObject from './OrderDates';
 
 function AvailableSlots({ display, items, clinicSelect, serviceSelect}) {
@@ -63,7 +61,7 @@ function AvailableSlots({ display, items, clinicSelect, serviceSelect}) {
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                 <Modal.Title>
-                    Confirm Booking
+                    Your Booking
                 </Modal.Title>
                 </Modal.Header>
                 
@@ -74,7 +72,7 @@ function AvailableSlots({ display, items, clinicSelect, serviceSelect}) {
                     <h5>{start}</h5>
                     <h5>{end}</h5>
                     <h5>{dateSelect}</h5>
-                    <Button onClick={sendBooking}>Send</Button> 
+                    <Button onClick={sendBooking}>Confirm Booking</Button> 
                 </Modal.Body>
 
                 <Modal.Footer>

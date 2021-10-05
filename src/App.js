@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+
 import SearchSlots from './Components/SearchSlots';
 import Navigate from './Components/Navbar';
 import 'bootstrap/dist/css/bootstrap.min.css'

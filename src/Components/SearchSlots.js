@@ -1,14 +1,10 @@
 import React from 'react'
 import { useState, useEffect } from "react";
-import { v4 as uuidv4 } from 'uuid';
 import { Container, Row, Col, Form, FormGroup } from "reactstrap"
 import AvailableSlots from './AvailableSlots';
 import fetchSlots from './Fetchslots';
 import 'bootstrap/dist/css/bootstrap.min.css'
-import axios from 'axios'
-import moment from 'moment';
-import dayjs from 'dayjs';
-import { placeholder } from '@babel/types';
+
 
 
 
@@ -20,10 +16,8 @@ const SearchSlots = () => {
     const [serviceList, setServiceList] = useState([]);
     const [startDate, setstartDate] = useState("")
     const [endDate, setendDate] = useState("")
-    const [slots, setSlots] = useState([]);
     const [multSlots, setMultSlots] = useState([]);
     const [showSlots, setShowSlots] = useState(false);
-    var timeArray = []
 
 
     useEffect(() => {
@@ -39,7 +33,7 @@ const SearchSlots = () => {
     }, [])
 
 
-    console.log(slots)
+   
 
     const fetchClinics = () => {
 
