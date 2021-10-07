@@ -1,10 +1,10 @@
 import axios from 'axios'
 
 const fetchSlots = async (dates, clinic_in, service_in) => {
-    const clinId = 'clinic100';
-    const servId = 'ser100';
-    // const clinId = clinic_in.clinicId;
-    // const servId = service_in.servId;
+    // const clinId = 'clinic100';
+    // const servId = 'ser100';
+    const clinId = clinic_in.id;
+    const servId = service_in.id;
     var info = {}
     await Promise.all(
         dates.map(async (id) => {

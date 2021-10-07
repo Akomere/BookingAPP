@@ -37,10 +37,149 @@
   }
 }
 
-.mainCont{
-  width: 50%;
-  height: 50%;
+body{
+
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.book-success{
+  color: green;
+  width: 20rem;
+  height: 20rem;
+  text-align: center;
+  justify-content: center;
+}
+
+.booked{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+
+.booking-results{
+  margin: auto;
+}
+
+
+.booking-title{
+  text-align: left;
+}
+
+.clinic-service-div{
+  width: 9.8rem;
+}
+
+.div-filter{
+  margin: auto;
+  background: url("/src/images/Therapie.jpeg");
+  -webkit-background: url("/src/images/Therapie.jpeg");
+  width: 100%;
+  z-index: -1;
+}
+
+.div-filter h1{
+  color: blueviolet; 
+}
+
+.filters-form{
   margin: auto;
   border: 2px solid black;
-
 }
+
+
+
+/* .booking-section{
+  border: 1px solid white;
+  border-radius: 6px;
+  background-color: black;
+  margin-top: 3rem;
+  
+} */
+/* .date-box{
+
+  width: 5rem;
+  height: 10rem;
+} */
+
+
+
+.date{
+    /* padding: 0.5rem; */ 
+    height: 2.5rem; 
+    /* border: 1px solid silver; */
+}
+
+.filters-form clinic{
+  margin-left: 10rem;
+}
+
+.list-title{
+  text-align: left;
+  padding-top: 1.5rem;
+  color: black;
+  font-weight: bold;
+}
+
+/* .left-filter-pad{
+  margin-left: 5rem;
+} */
+
+/* .right-filter-pad{
+  
+  margin-left: 3rem;
+} */
+
+.filter-above{
+  margin-top: 2rem;
+}
+
+.popup-result p{
+  font-weight: normal;
+  color: silver;
+}
+
+.popup-result h5{
+  font-weight: normal;
+  color:black;
+}
+
+.result-page{
+  text-align: center;
+  margin: auto;
+  margin-top: 10rem;
+  /* display: flex; */
+  justify-content: center;
+  
+}
+
+.result-page h3{
+  font-weight: normal;
+  margin-top: 1rem;
+}
+/* .search-button{
+  margin-left: 16.8rem;
+} */
+
+.text-center{
+  text-align: center;
+  font-weight: bold;
+  margin-top: 4rem;
+  color: #7A79D7;
+}
+
+.booking-text{
+  text-align: center;
+  color: white;
+  background-color: #7A79D7;
+}
+
+/* #7A79D7 */
+
+
+
+
+
+
+
+

@@ -1,7 +1,8 @@
 import React from 'react'
 import { useState, useEffect } from "react";
-import { Container, Row, Col, Form, FormGroup } from "reactstrap"
+import { Container, Row, Col, Form, FormGroup, Label, Input, Button } from "reactstrap"
 import AvailableSlots from './AvailableSlots';
+import Select from 'react-select'
 import fetchSlots from './Fetchslots';
 import 'bootstrap/dist/css/bootstrap.min.css'
 
@@ -14,26 +15,33 @@ const SearchSlots = () => {
     const [service, setService] = useState("select your item");
     const [clinicList, setClinicList] = useState([]);
     const [serviceList, setServiceList] = useState([]);
+
     const [startDate, setstartDate] = useState("")
     const [endDate, setendDate] = useState("")
     const [multSlots, setMultSlots] = useState([]);
     const [showSlots, setShowSlots] = useState(false);
 
+    const clinic_sel = []
+
 
     useEffect(() => {
-
+        let unmounted = false;
         const getTasks = () => {
 
             fetchClinics();
             fetchServices();
-            //fetchSlots();
+            //fetchSlots();       
         }
-        getTasks();
-
+        if(!unmounted){
+            getTasks();
+        }
+        return ()=>{
+            unmounted = true;
+        };
     }, [])
 
 
-   
+
 
     const fetchClinics = () => {
 
@@ -45,7 +53,20 @@ const SearchSlots = () => {
             },
         })
             .then((response) => response.json())
-            .then((data) => setClinicList(data))
+            .then((data) => {
+
+                const newLin = data.map((val) => {
+
+                    var opt = { id: "", value: "", label: "", address: "" }
+                    opt.value = val.city
+                    opt.label = val.city
+                    opt.id = val.clinicId
+                    opt.address = val.streetAddress
+                    return opt
+                })
+
+                setClinicList(newLin)
+            })
             .catch(error => console.log('Error while fetching:', error))
 
     }
@@ -60,15 +81,34 @@ const SearchSlots = () => {
             },
         })
             .then((response) => response.json())
-            .then((data) => setServiceList(data))
-            .catch(error => console.log('Error while fetching:', error))
+            .then((data) => {
 
+                const newLin = data.map((val) => {
+
+                    var opt = { id: "", value: "", label: "" }
+                    opt.value = val.name
+                    opt.label = val.name
+                    opt.id = val.serviceId
+
+                    return opt
+                })
+
+                setServiceList(newLin)
+            })
+            .catch(error => console.log('Error while fetching:', error))
     }
 
     const fetchMult = () => {
         var dayjs = require('dayjs')
+        var start = dayjs(startDate)
+        var stop = dayjs(endDate)
+
+        const days = stop.diff(start, 'days')
+
+        console.log(days)
+
         var datesArray = []
-        for (var dur = 1; dur < 6; dur++) {
+        for (var dur = 0; dur <= days; dur++) {
             let newDate = dayjs(startDate).add(dur, 'day')
             let final = newDate.format('YYYY-MM-DD')
             //console.log(datesArray)
@@ -83,13 +123,14 @@ const SearchSlots = () => {
     }
 
     const putClinic = (e) => {
-        setClinic(e.target.value)
+        console.log(e)
+        setClinic(e)
         // console.log(clinic)
     }
 
     const putService = (e) => {
-        setService(e.target.value)
-        // console.log(service)
+        setService(e)
+        console.log(e)
     }
 
     const submitItems = (e) => {
@@ -103,24 +144,32 @@ const SearchSlots = () => {
 
     return (
         <Container >
-
-            <div>
-                <h1>Filters</h1>
-                <Form className="mainCont" onSubmit={submitItems}>
+            <Container className="div-filter" >
+                <Row >
+                    <Col md={{ span: 3, offset: 3 }}>
+                        <h1 className="filters-title">Filters</h1>
+                    </Col>
+                </Row>
+                {/* filter form */}
+                {/* <Form data-testid="form" className="filters-form" onSubmit={submitItems}>
 
                     <Row>
-                        <Col>
+                        <Col lg={4}>
                             <FormGroup>
-                                <select data-testid="clinic" value={clinic} onChange={putClinic} required>
+                                <select className="clinic" data-testid="clinic" value={clinic} onChange={putClinic} required>
                                     <option value="select your item">Select Clinic</option>
                                     {clinicList.map((val) => {
                                         return <option data-testid="clinic-option" key={val.clinicId} value={val.city}>{val.city}</option>
                                     })}
                                 </select>
+
+                                <label htmlFor="clinic">clinic</label>
+                                <Select options={clinicList} name="clinic" inputId="clinic" onChange={putClinic} />
+
                             </FormGroup>
 
                         </Col>
-                        <Col>
+                        <Col lg={4}>
                             <FormGroup>
 
                                 <select data-testid="service" value={service} onChange={putService} required>
@@ -128,15 +177,15 @@ const SearchSlots = () => {
                                     {serviceList.map((val) => {
                                         return <option data-testid="service-option" key={val.serviceId} value={val.name}>{val.name}</option>
                                     })}
-
                                 </select>
+                                <Select options={serviceList} onChange={putService} />
                             </FormGroup>
                         </Col>
                     </Row>
                     <Row>
                         <Col>
                             <label htmlFor="start">Start time</label>
-                            <input id="start" type="date" value={startDate} onChange={(e) => setstartDate(e.target.value)} min="1997-01-01" max="2030-12-31" placeholder="dd-mm-yyyy" required />
+                            <input className="date" id="start" type="date" value={startDate} onChange={(e) => setstartDate(e.target.value)} min="1997-01-01" max="2030-12-31" placeholder="dd-mm-yyyy" required />
 
                             <label htmlFor="end">End time</label>
                             <input id="end" type="date" value={endDate} onChange={(e) => setendDate(e.target.value)} min={startDate} max="2030-12-31"
@@ -150,10 +199,61 @@ const SearchSlots = () => {
                     <label htmlFor="save">Save your task</label>
                     <input id="save" type="submit" value="Save your task" className="btn btn-block" placeholder="save" />
 
-                </Form>
-            </div>
-            <AvailableSlots display={showSlots} items={multSlots} clinicSelect={clinic} serviceSelect={service} />
+                </Form> */}
 
+                {/* second form */}
+
+                <Form data-testid="form" className="filters-form w-50 p-3 " onSubmit={submitItems}>
+                    <Row>
+                        <Col lg={true}>
+                            <FormGroup>
+                                <div className="clinic-service-div filter-above">
+                                    <label htmlFor="clinic">clinic</label>
+                                    <Select data-testid="clinic" options={clinicList} name="clinic" inputId="clinic" onChange={putClinic} />
+                                </div>
+                            </FormGroup>
+                        </Col>
+                        <Col lg={true}>
+                            <FormGroup>
+                                <div className="clinic-service-div filter-above">
+                                    <label htmlFor="service">service</label>
+                                    <Select name="service" data-testid="service" options={serviceList} onChange={putService} inputId="service" />
+                                </div>
+                            </FormGroup>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col className="date-box" lg={true}>
+                            <FormGroup>
+                                <div className="filter-above">
+                                    <label htmlFor="start">Start time</label><br />
+                                    <input className="date" id="start" type="date" value={startDate} onChange={(e) => setstartDate(e.target.value)} min="1997-01-01" max="2030-12-31" placeholder="dd-mm-yyyy" required />
+                                </div>
+                            </FormGroup>
+                        </Col>
+                        <Col className="date-box" lg={true}>
+                            <FormGroup>
+                                <div className="filter-above">
+                                    <label htmlFor="end">End time</label> <br />
+                                    <input className="date" id="end" type="date" value={endDate} onChange={(e) => setendDate(e.target.value)} min={startDate} max="2030-12-31"
+                                        placeholder="dd-mm-yyyy"
+                                        required />
+                                </div>
+                            </FormGroup>
+                        </Col>
+                    </Row>
+                    <Button id="save" type="submit" className="filter-above search-button" >
+                        {/* <input id="save" type="submit" value="Save your task" className="btn btn-block filter-above" placeholder="save"/> */}
+                        Search
+                    </Button>
+                </Form>
+            </Container>
+
+            <AvailableSlots display={showSlots} items={multSlots} clinicSelect={clinic} serviceSelect={service} />
+            {console.log("showSlots= " + showSlots)}
+            {console.log(multSlots)}
+            {console.log(clinic)}
+            {console.log(service)}
 
         </Container>
     )
