@@ -1,14 +1,11 @@
 import React from 'react'
-import { useState, useEffect } from "react";
 import ReactDom from 'react-dom'
-import fetchSlots from '../Fetchslots';
 import SearchSlots from '../SearchSlots';
-import AvailableSlots from '../AvailableSlots'
-import { cleanup, findByTestId, findByTitle, getByTestId, getByText, render, screen, waitFor } from '@testing-library/react'
+import { cleanup, render, screen,  } from '@testing-library/react'
 import { setupServer } from 'msw/node'
 import { rest } from 'msw'
 import { act } from 'react-dom/test-utils';
-import { fireEvent, getQueriesForElement, userEvent } from '@testing-library/dom';
+import { fireEvent} from '@testing-library/dom';
 import selectEvent from 'react-select-event';
 import "@testing-library/jest-dom/extend-expect"
 

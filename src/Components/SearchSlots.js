@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from "react";
-import { Container, Row, Col, Form, FormGroup, Label, Input, Button } from "reactstrap"
+import { Container, Row, Col, Form, FormGroup, Button } from "reactstrap"
 import AvailableSlots from './AvailableSlots';
 import Select from 'react-select'
 import fetchSlots from './Fetchslots';
@@ -20,8 +20,6 @@ const SearchSlots = () => {
     const [endDate, setendDate] = useState("")
     const [multSlots, setMultSlots] = useState([]);
     const [showSlots, setShowSlots] = useState(false);
-
-    const clinic_sel = []
 
 
     useEffect(() => {
@@ -250,11 +248,6 @@ const SearchSlots = () => {
             </Container>
 
             <AvailableSlots display={showSlots} items={multSlots} clinicSelect={clinic} serviceSelect={service} />
-            {console.log("showSlots= " + showSlots)}
-            {console.log(multSlots)}
-            {console.log(clinic)}
-            {console.log(service)}
-
         </Container>
     )
 }

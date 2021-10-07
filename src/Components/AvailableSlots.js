@@ -87,25 +87,25 @@ function AvailableSlots({ display, items, clinicSelect, serviceSelect }) {
                 ))}
 
                 <Modal show={show} onHide={handleClose}>
-                    <Modal.Header closeButton>
+                    <Modal.Header closeButton className="confirm-header-footer">
                         <Modal.Title>
-                            Your Booking
+                            <h3>Your Booking</h3>
                         </Modal.Title>
                     </Modal.Header>
 
 
                     <Modal.Body className="popup-result">
-                        <h5>Service: <p>{serviceSelect.value}</p></h5>
-                        <h5>Clinic: <p>{clinicSelect.value}</p></h5>
-                        <h5>address: <p>{clinicSelect.address}</p></h5>
-                        <h5>Date: <p>{dateSelect}</p></h5>
-                        <h5>From: <p>{start}</p></h5>
-                        <h5>To: <p>{end}</p></h5>
+                        <h6>Service: <p>{serviceSelect.value}</p></h6>
+                        <h6>Clinic: <p>{clinicSelect.value}</p></h6>
+                        <h6>Address: <p>{clinicSelect.address}</p></h6>
+                        <h6>Date: <p>{dateSelect}</p></h6>
+                        <h6>From: <p>{start}</p></h6>
+                        <h6>To: <p>{end}</p></h6>
 
-                        <Button onClick={sendBooking}>Confirm Booking</Button>
                     </Modal.Body>
-                    <Modal.Footer>
-                        <Button onClick={handleClose}>Cancel Booking</Button>
+                    <Modal.Footer className="confirm-header-footer" >
+                        {/* <Button onClick={handleClose}>Cancel Booking</Button> */}
+                        <Button color="success" onClick={sendBooking}>Confirm Booking</Button>
                     </Modal.Footer>
                 </Modal>
             </Container>
