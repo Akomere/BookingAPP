@@ -9,6 +9,8 @@ build the website:
   script:
     - npm install
     - npm run build
+    - cd build
+    - cp index.html 200.html
   artifacts:
     paths:
       - ./build

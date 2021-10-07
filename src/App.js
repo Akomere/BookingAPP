@@ -13,8 +13,8 @@ function App() {
       <Navigate />
       <Switch>
         <Route path="/" exact component={SearchSlots} />
-        <Route path="*/RequestFail"  component={RequestFail} />
-        <Route path="*/RequestSuccess"  component={RequestSuccess} />
+        <Route path="/RequestFail"  component={RequestFail} />
+        <Route path="/RequestSuccess"  component={RequestSuccess} />
       </Switch>
     </Router>
   );

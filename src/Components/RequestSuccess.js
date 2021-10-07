@@ -6,7 +6,7 @@ function RequestSuccess() {
 
     <div className="result-page">
       <img className="response-image " src="./images/check.png" alt="booked" />
-      <h3>Booking successful!</h3>  <br />
+      <h4>Booking successful!</h4>  <br />
       <a href="/">Return to Home</a>
     </div>
   )
