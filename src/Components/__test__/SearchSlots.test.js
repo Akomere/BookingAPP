@@ -1,16 +1,17 @@
 import React from 'react'
 import ReactDom from 'react-dom'
 import SearchSlots from '../SearchSlots';
-import { cleanup, render, screen,  } from '@testing-library/react'
+import { cleanup, render, screen, } from '@testing-library/react'
 import { setupServer } from 'msw/node'
 import { rest } from 'msw'
 import { act } from 'react-dom/test-utils';
-import { fireEvent} from '@testing-library/dom';
+import { fireEvent } from '@testing-library/dom';
 import selectEvent from 'react-select-event';
 import "@testing-library/jest-dom/extend-expect"
 
 afterEach(cleanup)
 
+//server to intercept API Call and return defined results
 const server = setupServer(
     rest.get("https://19be91bf2h.execute-api.eu-west-1.amazonaws.com/akpovesoa/clinics/*", (req, res, ctx) => {
         return res(
@@ -146,7 +147,6 @@ const server = setupServer(
 
 beforeAll(() => server.listen())
 afterAll(() => server.close())
-
 afterEach(() => server.resetHandlers())
 
 
@@ -155,19 +155,20 @@ it('renders without crashing', () => {
     ReactDom.render(<SearchSlots />, div)
 })
 
-// test select clinic
 test('select clinic feature', async () => {
-
     render(<SearchSlots />)
-    await act(() => selectEvent.select(screen.getByLabelText('clinic'), ['London']))
+    await act(() => selectEvent.select(screen.getByLabelText('Clinic'), ['London']))
     let options = screen.getByTestId('form')
     expect(options).toHaveFormValues({ clinic: 'London' })
 });
 
+test('select service feature', async () => {
+    render(<SearchSlots />)
+    await act(() => selectEvent.select(screen.getByLabelText('Service'), ['Derma Pen']))
+    let options = screen.getByTestId('form')
+    expect(options).toHaveFormValues({ service: 'Derma Pen' })
+});
 
-// test select service
-
-//test select starting date
 test('select start date feature', async () => {
 
     render(<SearchSlots />)

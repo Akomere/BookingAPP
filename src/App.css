@@ -38,8 +38,12 @@
 }
 
 body{
-
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin-left: 0rem;
+  margin-right: 0rem;
+  padding-right: 0rem;
+  padding-left: 0rem;
+  justify-content: center;
 }
 
 .book-success{
@@ -54,13 +58,18 @@ body{
   display: block;
   margin-left: auto;
   margin-right: auto;
-  
 }
 
 .booking-results{
   margin: auto;
 }
 
+.booking-text{
+  text-align: center;
+  color: white;
+  background-color: #7A79D7;
+  margin-bottom: 1rem;
+}
 
 .booking-title{
   text-align: left;
@@ -70,45 +79,43 @@ body{
   width: 9.8rem;
 }
 
+.confirm-header-footer{
+  background-color: #7A79D7;
+  color: white;
+}
+
+.color-nav{
+  background-color: #7A79D7 ;
+}
+
+.date{
+  height: 2.5rem; 
+  border: 1px solid silver; 
+  border-radius: 5.5px;
+}
+
 .div-filter{
   margin: auto;
   background: url("/src/images/Therapie.jpeg");
   -webkit-background: url("/src/images/Therapie.jpeg");
-  width: 100%;
   z-index: -1;
+  min-width: 18.2rem;
 }
 
-.div-filter h1{
+.div-filter h3{
   color: blueviolet; 
+  margin-top: 1rem;
+  margin-bottom: 0rem;
+}
+
+.filter-above{
+  margin-top: 2rem;
 }
 
 .filters-form{
   margin: auto;
   border: 2px solid black;
-}
-
-
-
-/* .booking-section{
-  border: 1px solid white;
-  border-radius: 6px;
-  background-color: black;
-  margin-top: 3rem;
-  
-} */
-/* .date-box{
-
-  width: 5rem;
-  height: 10rem;
-} */
-
-
-
-.date{
-    /* padding: 0.5rem; */ 
-    height: 2.5rem; 
-    border: 1px solid silver; 
-    border-radius: 5.5px;
+  min-width: 18rem;
 }
 
 .filters-form clinic{
@@ -122,22 +129,21 @@ body{
   font-weight: bold;
 }
 
-/* .left-filter-pad{
-  margin-left: 5rem;
-} */
-
-/* .right-filter-pad{
-  
-  margin-left: 3rem;
-} */
-
-.filter-above{
-  margin-top: 2rem;
+.modal-box{
+  max-width: 21rem;
+  margin: auto;
+  margin-bottom: 20rem;
+  position: relative;
 }
 
-.confirm-header-footer{
-  background-color: #7A79D7;
-  color: white;
+.nav-text-title{
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.nav-text-center{
+  font-size: 1.4rem;
+  margin-left: 15rem;
 }
 
 .popup-result p{
@@ -154,18 +160,13 @@ body{
   text-align: center;
   margin: auto;
   margin-top: 10rem;
-  /* display: flex; */
   justify-content: center;
-  
 }
 
 .result-page h4{
   font-weight: normal;
   margin-top: 1rem;
 }
-/* .search-button{
-  margin-left: 16.8rem;
-} */
 
 .text-center{
   text-align: center;
@@ -174,26 +175,11 @@ body{
   color: #7A79D7;
 }
 
-.booking-text{
-  text-align: center;
-  color: white;
-  background-color: #7A79D7;
-}
 
-.color-nav{
-  background-color: #7A79D7 ;
-}
 
-.nav-text-title{
-  font-weight: bold;
-  font-size: 1.5rem;
-}
 
-.nav-text-center{
-  font-size: 1.4rem;
-  margin-left: 15rem;
 
-}
+
 
 
 
