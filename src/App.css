@@ -107,7 +107,8 @@ body{
 .date{
     /* padding: 0.5rem; */ 
     height: 2.5rem; 
-    /* border: 1px solid silver; */
+    border: 1px solid silver; 
+    border-radius: 5.5px;
 }
 
 .filters-form clinic{
@@ -179,7 +180,22 @@ body{
   background-color: #7A79D7;
 }
 
-/* #7A79D7 */
+.color-nav{
+  background-color: #7A79D7 ;
+}
+
+.nav-text-title{
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.nav-text-center{
+  font-size: 1.4rem;
+  margin-left: 15rem;
+
+}
+
+
 
 
 

@@ -3,14 +3,13 @@ import {Navbar, Nav, Container} from "react-bootstrap"
 
 function Navigate(){
     return(
-<Navbar bg="primary" variant="dark" expand="lg">
+<Navbar variant="dark" className="color-nav" >
   <Container>
-    <Navbar.Brand href="#home">Zontlabs</Navbar.Brand>
+    <Navbar.Brand className="nav-text-title" href="#home">Therapie Clinic</Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
-      <Nav className="me-auto">
-        <Nav.Link href="#home">Home</Nav.Link>
-        <Nav.Link href="#home">Therapy Clinic Availability Search</Nav.Link>
+      <Nav className="nav-text-center">
+        <Nav.Link  href="#home">Therapy Clinic Availability Search</Nav.Link>
       </Nav>
     </Navbar.Collapse>
   </Container>
