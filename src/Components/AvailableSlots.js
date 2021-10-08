@@ -67,10 +67,10 @@ function AvailableSlots({ display, items, clinicSelect, serviceSelect }) {
                         ))}
                     </Row>
                 ))}
-                    <Modal className="modal-box" show={show} onHide={handleClose}>
+                    <Modal className="modal-box modal-fullscreen-sm-down" show={show} onHide={handleClose} centered >
                         <Modal.Header closeButton className="confirm-header-footer">
                             <Modal.Title>
-                                <h3>Your Booking</h3>
+                                <h5>Your Booking</h5>
                             </Modal.Title>
                         </Modal.Header>
                         <Modal.Body className="popup-result">

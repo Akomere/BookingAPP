@@ -44,6 +44,7 @@ body{
   padding-right: 0rem;
   padding-left: 0rem;
   justify-content: center;
+  min-height: 100%;
 }
 
 .book-success{
@@ -129,13 +130,6 @@ body{
   font-weight: bold;
 }
 
-.modal-box{
-  max-width: 21rem;
-  margin: auto;
-  margin-bottom: 20rem;
-  position: relative;
-}
-
 .nav-text-title{
   font-weight: bold;
   font-size: 1.5rem;
@@ -143,7 +137,7 @@ body{
 
 .nav-text-center{
   font-size: 1.4rem;
-  margin-left: 15rem;
+  margin-left: 20%;
 }
 
 .popup-result p{
