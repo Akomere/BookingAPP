@@ -6,7 +6,7 @@ function Navigate() {
   return (
     <Navbar variant="dark" className="color-nav" expand="lg" >
       <Container>
-        <Navbar.Brand className="nav-text-title" href="/">Therapie Clinic</Navbar.Brand>
+        <Navbar.Brand className="nav-text-title" href="/">thérapie Clinic</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="nav-text-center">
