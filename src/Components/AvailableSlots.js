@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { v4 as uuidv4 } from 'uuid';
 import { useState } from 'react';
 import { Row, Col, Container, Card, CardText, Button } from "reactstrap"
@@ -12,8 +12,10 @@ function AvailableSlots({ display, items, clinicSelect, serviceSelect }) {
     const [dateSelect, setdateSelect] = useState("")
     const [start, setstart] = useState("")
     const [end, setend] = useState("")
+    const [isMounted, setIsMounted] = useState(false);
     var newObject = sortObject(items)
     let keys = Object.keys(newObject)
+
 
     const handleShow = (dateClick, startTimeClick, endTimeClick) => {
         setShow(true)
@@ -90,4 +92,4 @@ function AvailableSlots({ display, items, clinicSelect, serviceSelect }) {
     )
 }
 
-export default AvailableSlots
+export default React.memo(AvailableSlots)

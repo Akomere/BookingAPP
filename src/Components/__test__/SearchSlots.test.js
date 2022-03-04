@@ -5,7 +5,7 @@ import { cleanup, render, screen, } from '@testing-library/react'
 import { setupServer } from 'msw/node'
 import { rest } from 'msw'
 import { act } from 'react-dom/test-utils';
-import { fireEvent } from '@testing-library/dom';
+import { fireEvent } from '@testing-library/react';
 import selectEvent from 'react-select-event';
 import "@testing-library/jest-dom/extend-expect"
 
@@ -178,7 +178,7 @@ test('select start date feature', async () => {
 });
 
 //test select end date
-test('select start date feature', async () => {
+test('select end date feature', async () => {
 
     render(<SearchSlots />)
     const ending = screen.getByLabelText('End time')
